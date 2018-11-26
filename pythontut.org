@@ -1,0 +1,169 @@
+
+* lecture 2
+
+#+BEGIN_SRC python
+x=3
+x=x*x
+print x
+
+#+END_SRC
+
+#+RESULTS:
+: None
+
+#+BEGIN_SRC python
+x=15
+z='b'
+if x<'z':
+    print 'hello'
+    print 'mom'
+
+#+END_SRC
+
+#+RESULTS:
+: None
+
+#+BEGIN_SRC python :results output
+
+x=15
+y=5
+z=11
+print x,y,z
+print "how are you?"
+
+if x<y:
+    if x<z:
+        print 'x is least'
+    else:
+        print 'z is least'
+else:
+    print 'y is least'
+
+#+END_SRC
+
+#+RESULTS:
+: 15 5 11
+: how are you?
+: y is least
+
+#+BEGIN_SRC python :results output
+y=0
+x=10
+itersLeft=x
+while(itersLeft>0):
+    y=y+5
+    itersLeft=itersLeft-1
+    print 'itersLeft and y'
+print y
+print itersLeft
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+itersLeft and y
+itersLeft and y
+itersLeft and y
+itersLeft and y
+itersLeft and y
+itersLeft and y
+itersLeft and y
+itersLeft and y
+itersLeft and y
+itersLeft and y
+50
+0
+#+end_example
+
+
+#+BEGIN_SRC python :results output
+y=0
+x=10
+itersLeft=x
+while(itersLeft>0):
+    y=y+5
+    itersLeft=itersLeft-1
+    print itersLeft, ' and', y
+print y
+print itersLeft
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+9  and 5
+8  and 10
+7  and 15
+6  and 20
+5  and 25
+4  and 30
+3  and 35
+2  and 40
+1  and 45
+0  and 50
+50
+0
+#+end_example
+
+#+BEGIN_QUOTE
+there is a while block and not there is no do and done sub blocks
+all that matters is the indentation
+#+END_QUOTE
+
+#+BEGIN_SRC python :results output
+
+x=10
+i=1
+while (i<x):
+    if x%i == 0:
+        print i, 'is the divisor of ', x
+    i=i+1
+
+
+#+END_SRC
+
+#+RESULTS:
+: 1 is the divisor of  10
+: 2 is the divisor of  10
+: 5 is the divisor of  10
+
+#+BEGIN_SRC python :results output 
+x=10
+for i in range(1,x):
+    if x%i == 0:
+        print i, ' is the divisor of ', x
+
+#+END_SRC
+
+#+RESULTS:
+: 1  is the divisor of  10
+: 2  is the divisor of  10
+: 5  is the divisor of  10
+
+#+BEGIN_SRC python :results output
+
+print 'a'*3
+#print 'a'+4 # this will just fail
+print 'a'+'bacd'
+print str(3)+'abc' # here type conversion is taking place
+#syntactically alright but here is a semantic error
+# syntactically allright, in the sense that it will run allright, the computer will not output any error, but
+# it will not not do the right thing, the meaning of the program is wrong << semantic error
+# semantic error is hard to find, because the computer does not output any error and you have to go back and look for it
+# with a magnifying glass
+
+# so it seems like semantic error is the reason why we have type checking in languages. and languages can be classified as strongly typed or loosely typed 
+
+# type checking is a pain in the ass but it helps in that as your program grows, it become more easier to screw up and this is where type checking helps
+
+print '4'>3  # story behind this?
+print '3'<4  # semantic error
+
+#+END_SRC
+
+#+RESULTS:
+: aaa
+: abacd
+: 3abc
+: True
+: False
+
+
