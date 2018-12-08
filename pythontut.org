@@ -1,4 +1,19 @@
 
+* prerequisites
+
+[[https://docs.python.org/3/][online python documentation]]
+
+When you refer to old books, the modules so reffered there are usually renamed and methods have changed.
+Look them up in this online documentation. The logic remains the same, the names and args most probably would have changed.
+
+Python is like a giant jigsaw puzzle, you have to figure out the modules and methods available to them.
+We get to play with these black boxes( never open them ). So this is definitely not programming not in that sense that you get to play with the basic constructs. Except for the basic expressions of the language, the bulk of the nuts and bolts are all hidden away inside black boxes. 
+This is very unlike java or maybe not. In java atleast we were defining the classes or modules ourselves. (except for classes related to data types)
+In python we are not really much concerned with building modules (you can if you want, defining classes, but not really there yet). Mostly we are just creating new instances of objects and invoking their methods. All of this just wrapped in the language expressions, that is all about it. 
+
+
+
+
 * lecture 2
 
 #+BEGIN_SRC python
