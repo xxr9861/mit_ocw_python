@@ -185,3 +185,29 @@ print '3'<4  # semantic error
 : False
 
 
+
+** Take an iterable, remove certain elements and add them back at the tail end 
+
+Write an algorithm that takes an array and moves all of the zeros to
+the end, preserving the order of the other elements.
+
+move_zeros([false,1,0,1,2,0,1,3,"a"]) # returns[false,1,1,2,1,3,"a",0,0]
+
+#+BEGIN_SRC python :results output
+def move_zeros(array):
+#    return list(filter(lambda x: x!=0,array)).append(0*array.occur(0))
+#    return list(filter(lambda x: x!=0,array)).append(0*array.count(0))
+    list_without_zero=list(filter(lambda x: x!=0,array))
+    array.count(0)
+    for x in range(array.count(0)):
+        list_without_zero.append(0)
+    print list_without_zero
+#+END_SRC
+
+The only problem is that the given array is not an array
+
+[false,1,0,1,2,0,1,3,"a"]
+
+false without quotes is not a string
+you can either have int or strings in the array.
+
