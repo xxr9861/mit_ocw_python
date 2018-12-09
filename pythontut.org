@@ -186,6 +186,160 @@ print '3'<4  # semantic error
 
 
 
+** Liguistic expressions
+
+
+#+BEGIN_SRC python
+
+def song_decoder(song):
+    return ' '.join(word for word in song.replace('WUB','-').split('-') if word).strip()
+
+
+#+END_SRC
+
+
+word for word in song.replace()
+
+x for x in string.replace()
+
+x for x in list.fun()
+
+x for x in object if x
+
+if the object was iterable like a list maybe
+
+x for x in iterable_object if x
+
+
+
+
+lambda x: x!=y, iterable_object
+
+filter(lambda x: x!=y, iterable_object)
+
+only here filter has not been used
+
+if (lambda x: blah blah, in x): # <-- how do i write this?
+    return x
+
+# sometimes i get confused and all
+
+x for x in iterable_object if boolean
+
+x for x in iterable_object.method() if x
+x for x in iterable_object.replace(string1, string2) if x
+
+if there is string1 then replace with string2
+
+this is a for loop through the iterable object, and there is a test or condition and there is an action to perform on the items
+
+
+
+that is not the whole of it
+
+x for x in string.replace() if x
+
+x for x in list.func() if x
+
+interesting construct
+
+#+BEGIN_SRC python
+def song_decoder(song):
+    txt = song.split('WUB')
+    return ' '.join(list(filter(lambda a: a != '', txt)))
+    
+
+# filter(function, iterable)
+# list(filter object)
+# ''.join(list object) -->> string object
+# string_object.split() -->> list object
+
+
+def song_decoder(song):
+    lyrics = song.split('WUB')
+    return " ".join(filter(lambda x: x !='', lyrics))
+
+# does this even work? filter object has to be changed to list object
+
+#+END_SRC
+
+#+BEGIN_SRC python
+
+def song_decoder(song):
+    return " ".join("" if word.isspace() else word for word in song.replace("WUB", " ").split())
+
+# "" if word.isspace() else word for word in song.replace("WUB", " ").split()
+
+# "" if object.boolean_method() else object for object in iterable_object.method().split()
+
+# "" if object.boolean_method()
+# else:
+# object for object in iterable_object.method().split()
+
+# split() is wrapped over all of them, to give an iterable object or else nothing would work.
+# nope!, the iterable object is 
+# song.replace(arg1, arg2).split()
+# word for word in song.replace(arg1, arg2).split()
+
+# this could have been written in a simpler way instead of this convoluted manner
+
+for word in song.replace(arg1, arg2).split():
+    if word.isspace():
+        return ""
+    else:
+        return word
+
+#+END_SRC
+
+#+BEGIN_SRC 
+"" if item.isspace() else item for item in list.func()
+
+#+END_SRC
+
+this is just weird syntax
+
+
+#+BEGIN_SRC python
+def song_decoder(song):
+    if "WUB" in song:    # Checks if there is WUB in the string
+        song2 = song.replace("WUB"," ")    # Replaces WUB with a space character
+        song2 = song2.split()    # Splits the string into a list of element
+        return ' '.join(song2)    # Joins the list into a string , with the elements separated by a space character
+    else:
+        return song
+
+#+END_SRC
+
+surprised that this works
+
+#+BEGIN_SRC 
+if "substring pattern " in string:
+    string.replace() #<<-- 
+    string.split() ##<--
+
+
+
+string.find(substring) ##<-- gives positive number or if not found then -1
+
+
+if test do something
+    else:
+zero=0; #<-- this is funny because it does nothing.
+
+#+END_SRC
+
+#+BEGIN_SRC python
+import re
+def song_decoder(song):
+    wubs = re.split('WUB', song)
+    
+    wubs = filter(lambda x: x!='', wubs)
+
+    return ' '.join(wubs)
+
+#+END_SRC
+
+
 ** Take an iterable, remove certain elements and add them back at the tail end 
 
 Write an algorithm that takes an array and moves all of the zeros to
