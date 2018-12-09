@@ -11,6 +11,9 @@ We get to play with these black boxes( never open them ). So this is definitely 
 This is very unlike java or maybe not. In java atleast we were defining the classes or modules ourselves. (except for classes related to data types)
 In python we are not really much concerned with building modules (you can if you want, defining classes, but not really there yet). Mostly we are just creating new instances of objects and invoking their methods. All of this just wrapped in the language expressions, that is all about it. 
 
+** Coding challenges
+
+[[https://www.codewars.com/dashboard][Codewars]]
 
 
 
