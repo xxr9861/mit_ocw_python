@@ -211,3 +211,108 @@ The only problem is that the given array is not an array
 false without quotes is not a string
 you can either have int or strings in the array.
 
+** filter() and map() and list()
+
+#+BEGIN_QUOTE
+
+Isn't filter() similar to map()
+
+
+so what is the difference between filter() and map()
+
+#+END_QUOTE
+
+ The main difference between forEach and filter is that forEach just
+ loop over the array and executes the callback but filter executes the
+ callback and check its return value. If the value is true element
+ remains in the resulting array but if the return value is false the
+ element will be removed for the resulting array.
+
+#+BEGIN_SRC 
+>>> mylist
+[4, 45, 45]
+
+>>> mylist.split()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'list' object has no attribute 'split'
+
+>>> ''.join(mylist)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: sequence item 0: expected str instance, int found
+
+>>> lambda x:x**2, mylist
+(<function <lambda> at 0x7ffbc0578048>, [4, 45, 45])
+
+>>> map(lambda x:x**2, mylist)
+<map object at 0x7ffbbe8a6b70>
+
+>>> list(map(lambda x:x**2, mylist))
+[16, 2025, 2025]
+
+>>> list(filter(lambda x:x**2, mylist))
+[4, 45, 45]
+
+>>> type(filter(lambda x:x**2, mylist))
+<class 'filter'>
+
+#+END_SRC
+
+what is this filter object or filter type
+
+filter takes two arguments a function and the list or an iterable object
+
+you used the wrong kind of function
+
+the function should return a boolean
+
+lambda x: x!=2
+lambda x: x>200
+lambda x,y: x!=y
+
+and so on
+
+filter object=filter(function, iterable)
+filter object returned is also an iterable
+but
+those elements for which the function returns a false boolean are not included in the resulting 
+iterable.
+
+hence the name "filter"
+
+the map function
+map()
+
+iterable=map(function, iterable)
+
+#+BEGIN_SRC 
+>>> mylist
+[4, 45, 45]
+
+>>> map(lambda x: x**2, mylist)
+<map object at 0x7ffbbe8a6b70>
+
+>>> type(map(lambda x: x**2, mylist))
+<class 'map'>
+
+>>> list(map(lambda x: x**2, mylist))
+[16, 2025, 2025]
+
+#+END_SRC
+
+list() converts the map object back into a list object
+
+
+
+The following would be wrong
+
+map(lambda x: x<2, mylist) # i dont think you should do a boolean type of function with map()
+
+#+BEGIN_SRC 
+>>> list(map(lambda x: x<2, mylist))
+[False, False, False]
+
+#+END_SRC
+
+It does work, it returns boolean, but not the original iterable. For that you have to use filter()
